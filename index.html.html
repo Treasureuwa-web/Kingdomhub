@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kingdom Hub</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--bg:var(--tg-theme-bg-color,#0f131a);--c:var(--tg-theme-secondary-bg-color,#1a202c);--t:var(--tg-theme-text-color,#eef1f7);--h:var(--tg-theme-hint-color,#8b93a7);--a:#3b82f6;--g:#22c55e;--r:#ef4444}
+*{box-sizing:border-box}svg{display:block}
+body{margin:0;padding:14px 12px 28px;background:var(--bg);color:var(--t);font:16px/1.45 -apple-system,sans-serif}
+.hide{display:none}h1{font-size:22px;margin:0}.s{color:var(--h);font-size:12.5px;margin-bottom:10px}
+#sp{position:fixed;inset:0;z-index:99;background:#0b0f16;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .45s}
+#sp svg{width:110px;height:110px}.dr{stroke-dashoffset:277;stroke:#60a5fa;animation:d 1s ease forwards}
+.pp{opacity:0;animation:p .6s .5s forwards}
+@keyframes d{to{stroke-dashoffset:0}}@keyframes p{to{opacity:1}}
+.t1{font-size:23px;font-weight:800;margin-top:12px;opacity:0;animation:p .6s 1s forwards}
+.t2{color:#7d8aa3;font-size:11px;letter-spacing:2px;margin-top:3px;opacity:0;animation:p .6s 1.2s forwards}
+#sp.gone{opacity:0;pointer-events:none}
+.seg{display:flex;gap:6px;background:var(--c);padding:5px;border-radius:13px;margin-bottom:12px}
+.seg button{flex:1;padding:12px 4px;border:0;border-radius:9px;background:none;color:var(--h);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.seg .on{background:var(--a);color:#fff}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cat{background:var(--c);border:0;border-radius:13px;padding:12px 6px;color:var(--t);font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;text-align:center;display:block;width:100%;-webkit-appearance:none}
+.cat:active{transform:scale(.97)}.cat svg{width:26px;height:26px;margin:0 auto 5px}
+.cat span{display:block;color:var(--h);font-size:11px;font-weight:400;margin-top:2px}
+.w{grid-column:1/-1;background:linear-gradient(135deg,#1e40af,#6d28d9)}
+.card{background:var(--c);border-radius:15px;padding:15px;margin-bottom:11px}
+.q{font-size:16.5px;font-weight:700;line-height:1.4;margin-bottom:12px}
+.o{display:block;width:100%;text-align:left;padding:12px 13px;margin-bottom:8px;border:1.5px solid transparent;border-radius:11px;background:rgba(127,127,127,.13);color:var(--t);font-family:inherit;font-size:14.5px;cursor:pointer}
+.ok{border-color:var(--g);background:rgba(34,197,94,.18)}
+.no{border-color:var(--r);background:rgba(239,68,68,.18)}
+.why{margin-top:10px;padding:11px;border-radius:10px;font-size:13.5px;background:rgba(59,130,246,.13);border-left:3px solid var(--a)}
+.bar{height:6px;border-radius:99px;background:rgba(127,127,127,.2);overflow:hidden;margin-bottom:9px}
+.bar i{display:block;height:100%;background:var(--a);width:0;transition:.3s}
+.m{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--h);font-weight:600;margin-bottom:8px}
+.tm{font-variant-numeric:tabular-nums;color:var(--a);font-weight:700}
+.tm.low{color:var(--r)}
+.bk{background:var(--c);border:0;border-radius:10px;padding:6px 7px;cursor:pointer}
+.bk svg{width:17px;height:17px}
+.btn{display:block;width:100%;padding:14px;border:0;border-radius:13px;background:var(--a);color:#fff;font-family:inherit;font-size:15.5px;font-weight:700;cursor:pointer;margin-top:8px}
+.gh{background:var(--c);color:var(--t)}.big{font-size:46px;font-weight:800;text-align:center}
+.mid{text-align:center;color:var(--h);font-size:13.5px}
+.rv{border-left:3px solid var(--r);padding:8px 0 8px 10px;margin-bottom:9px;font-size:13.5px}
+.rv b{color:var(--g);display:block}.rv em{color:var(--h);font-style:normal;font-size:13px;display:block}
+#snd{background:var(--c);border:0;border-radius:11px;padding:7px 10px;cursor:pointer}#snd svg{width:20px;height:20px}
+</style></head><body>
+
+<div id="sp"><svg viewBox="0 0 100 100">
+<circle class="dr" cx="50" cy="50" r="44" fill="none" stroke-width="2" stroke-dasharray="277"/>
+<path class="pp" d="M28 40c8-4 16-4 22 2v30c-6-6-14-6-22-2z" fill="#60a5fa"/>
+<path class="pp" d="M72 40c-8-4-16-4-22 2v30c6-6 14-6 22-2z" fill="#a78bfa"/>
+</svg><div class="t1">Kingdom Hub</div><div class="t2">LEARN / FAITH / GROW</div></div>
+
+<div class="m"><div><h1>Kingdom Hub</h1><div class="s" id="hi">60 questions - 6 subjects</div></div>
+<button id="snd" data-a="mu"></button></div>
+
+<div id="home"><div class="seg">
+<button id="l1" class="on" data-a="lv 1">13+ Foundation</button>
+<button id="l2" data-a="lv 2">16+ Advanced</button></div>
+<div class="g" id="grid"></div></div>
+
+<div id="run" class="hide"><div class="m">
+<button class="bk" data-a="bk"></button>
+<span id="cnt"></span><span id="tm" class="tm"></span><span id="tag"></span></div>
+<div class="bar"><i id="prog"></i></div>
+<div class="card"><div class="q" id="qt"></div><div id="opts"></div><div class="why hide" id="why"></div></div>
+<button class="btn gh" data-a="bk">Back to subjects</button></div>
+
+<div id="done" class="hide"><div class="card"><div class="big" id="fin"></div><div class="mid" id="fl"></div><div class="mid" id="tm_total"></div></div>
+<div id="rev"></div>
+<button class="btn" data-a="ss">Send score to the bot</button>
+<button class="btn gh" data-a="ag">Play again</button>
+<button class="btn gh" data-a="hm">Change subject</button></div>
+
+<script>
+var T=window.Telegram&&window.Telegram.WebApp?window.Telegram.WebApp:null;
+if(T){try{T.ready();T.expand()}catch(e){}}
+function $(i){return document.getElementById(i)}
+function up(e){while(e&&e!==document){if(e.getAttribute&&e.getAttribute("data-a"))return e;e=e.parentNode}return null}
+try{$("hi").textContent="Hi "+T.initDataUnsafe.user.first_name+" - 60 questions"}catch(e){}
+function ic(d,c){return '<svg viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+d+'"/></svg>'}
+
+var AC,MG,MU=0;try{MU=localStorage.km=="1"}catch(e){}
+function ac(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext);MG=AC.createGain();MG.gain.value=.9;MG.connect(AC.destination)}catch(e){return null}}if(AC.state!="running"){try{AC.resume()}catch(e){}}return AC}
+function ul(){var c=ac();if(!c)return;try{var b=c.createBuffer(1,1,22050),s=c.createBufferSource();s.buffer=b;s.connect(MG);s.start()}catch(e){}}
+["pointerdown","touchstart","touchend","click","keydown"].forEach(function(e){document.addEventListener(e,ul,1)});
+function N(f,d,v,ty,dl){
+ if(MU)return;var c=ac();if(!c)return;
+ try{var t=c.currentTime+(dl||0),g=c.createGain(),lp=c.createBiquadFilter(),o=c.createOscillator(),o2=c.createOscillator();
+ o.type=ty||"triangle";o2.type="sine";o.frequency.value=f;o2.frequency.value=f*2;o2.detune.value=7;
+ lp.type="lowpass";lp.frequency.value=3400;
+ g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v||.18,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+d);
+ o.connect(lp);o2.connect(lp);lp.connect(g);g.connect(MG);
+ o.start(t);o2.start(t);o.stop(t+d+.06);o2.stop(t+d+.06)}catch(e){}}
+function sfx(k){
+ if(MU)return;ac();
+ if(k=="ok"){N(523,.17,.2);N(659,.17,.2,0,.07);N(784,.23,.18,0,.14);N(1047,.34,.14,0,.23)}
+ else if(k=="no"){N(196,.19,.18,"sawtooth");N(147,.28,.15,"sawtooth",.11)}
+ else if(k=="tap"){N(880,.06,.1)}
+ else if(k=="tick"){N(1200,.04,.06)}
+ else if(k=="win"){N(262,.9,.1,"sine");
+ [523,659,784].forEach(function(f,i){N(f,.5,.13,0,i*.05)});
+ [587,740,880].forEach(function(f,i){N(f,.5,.12,0,.4+i*.05)});
+ [659,831,988].forEach(function(f,i){N(f,.5,.12,0,.78+i*.05)});
+ [784,988,1175,1568].forEach(function(f,i){N(f,.75,.11,0,1.16+i*.06)})}
+ else{N(392,.18,.14);N(587,.26,.13,0,.1)}}
+var SPK="M4 9.5h3.2L12 5.6v12.8L7.2 14.5H4z",SPO=SPK+" M15.2 9.2a4 4 0 0 1 0 5.6 M18 6.6a7.6 7.6 0 0 1 0 10.8",SPM=SPK+" M16 9.5l5 5M21 9.5l-5 5";
+function snd(){$("snd").innerHTML=ic(MU?SPM:SPO,MU?"#8b93a7":"#60a5fa")}snd();
+
+function bye(){var s=$("sp");if(!s)return;s.className="gone";setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s)},500)}
+setTimeout(bye,2400);
+
+var LIMIT=15;
+var Q={
+maths:{1:["3x+7=22. x?|5|7|15|3|subtract 7, divide 3","15% of 240?|36|24|32|40|24+12","x^3 times x^4?|x^7|x^12|x|x^5|add indices","Circle r=5. Area?|78.5|31.4|15.7|50|pi r squared","Mean of 4,8,6,10,12?|8|6|10|7|40/5"],
+2:["x^2-5x+6=0?|2 or 3|-2 or -3|1 or 6|5 or 6|(x-2)(x-3)","Gradient of 3x+2y=6?|-1.5|1.5|3|-3|y=-1.5x+3","Die twice. P(both even)?|1/4|1/3|1/2|1/6|1/2 x 1/2","f(x)=x^2-3x. f(-2)?|10|-10|2|-2|4+6","1000 at 10% compound, 2y?|1210|1200|1100|1000|1100x1.1"]},
+science:{1:["Plants absorb to feed?|Carbon dioxide|Oxygen|Nitrogen|Hydrogen|photosynthesis","Symbol for water?|H2O|CO2|O2|NaCl|2H 1O","Pumps blood?|Heart|Liver|Lungs|Kidney|double pump","Pulls objects to Earth?|Gravity|Friction|Magnetism|Tension|weight is force","Adult bones?|206|186|226|250|about 270 at birth"],
+2:["Pairs with guanine?|Cytosine|Adenine|Thymine|Uracil|G-C and A-T","F=ma. 4kg at 5m/s2?|20 N|9 N|1.25 N|0.8 N|4x5","Shares electron pairs?|Covalent|Ionic|Metallic|Dipole|ionic transfers","V=IR. I=0.5A R=12?|6 V|24 V|12.5 V|0.04 V|0.5x12","Halves chromosomes?|Meiosis|Mitosis|Osmosis|Fission|makes gametes"]},
+english:{1:["Synonym of rapid?|Quick|Slow|Heavy|Quiet|means fast","Plural of child?|Children|Childs|Childes|Childrens|irregular","Which is a verb?|Ran|Table|Blue|Quickly|action word","Opposite of generous?|Selfish|Kind|Open|Rich|keeps not gives","Correct spelling?|Necessary|Neccessary|Necesary|Necessery|one c two s"],
+2:["Appeal to credibility?|Ethos|Pathos|Logos|Bathos|ethos pathos logos","Semicolon used well?|I was late; the bus broke.|I was late, the bus broke.|I was late: the bus, broke.|I was late the bus broke.|joins two clauses","If I ___ taller.|were|was|am|be|subjunctive","Audience knows, character does not?|Dramatic irony|Verbal irony|Hyperbole|Metonymy|knowledge gap","Only reading agreeing sources?|Confirmation bias|Peer review|Triangulation|Objectivity|belief untested"]},
+bible:{1:["First Bible book?|Genesis|Exodus|Psalms|Matthew|means beginning","Led Israel out of Egypt?|Moses|Abraham|David|Joshua|the exodus","Killed Goliath?|David|Saul|Samson|Gideon|1 Samuel 17","Swallowed by a fish?|Jonah|Elijah|Noah|Peter|ran from God","New Testament books?|27|39|66|21|39+27=66"],
+2:["Ephesians 2:8 salvation by?|Grace through faith|Works alone|Lineage|Tithing|not by works","Jeremiah 31 covenant on?|Hearts|Stone|Scrolls|Bronze|internal not external","Book on undeserved suffering?|Job|Proverbs|Ruth|Ezra|refuses tidy answers","Matthew 5 love includes?|Your enemies|Family only|Believers only|Your tribe|radical for its day","Faith without works is?|Dead|Optional|Greater|Suffering|genuine faith acts"]},
+history:{1:["Wall fell in 1989?|The Berlin Wall|The Great Wall|Hadrian Wall|The Western Wall|ended Soviet bloc","WW2 ended?|1945|1939|1918|1950|1918 ended WW1","Built the Colosseum?|Roman Empire|Greek|Ottoman|Persian|under Vespasian","UK PM in WW2?|Churchill|Chamberlain|Attlee|Eden|from 1940","Built Giza pyramids?|Ancient Egypt|Greece|Rome|Babylon|royal tombs"],
+2:["Magna Carta sealed?|1215|1066|1348|1415|Runnymede","Treaty ending WW1?|Versailles|Paris|Rome|Utrecht|1919","Developed cuneiform?|The Sumerians|The Egyptians|The Greeks|The Phoenicians|clay tablets","Industrial Revolution began in?|Britain|France|Germany|The USA|coal and iron","Wrote The Prince?|Machiavelli|Hobbes|Locke|Rousseau|1513"]},
+think:{1:["A budget is?|A spending plan|A loan|A savings account|A tax|a plan not a product","Ice cream and drowning both rise in summer?|Heat drives both|Ice cream drowns|Drowning sells ice cream|No link|correlation is not cause","Opportunity cost is?|Best alternative given up|The cash price|The tax paid|The interest|every choice has one","Pay yourself first means?|Save when income lands|Save the leftovers|Borrow to invest|Save yearly|leftovers vanish","A sunk cost is?|Money gone and unrecoverable|A cost you can avoid|A future expense|A tax|never drives decisions"],
+2:["Finishing a bad film you paid for?|Sunk cost fallacy|Sound investing|Basic logic|Altruism|money already gone","Principle of charity means?|Answer the strongest version|Pay your opponents|Ignore weak points|Agree with everyone|it tests you","Comparing loans, what matters?|The APR with fees|The headline rate|The advertising|The bank size|fees add up","Best for durable memory?|Testing yourself|Re-reading notes|Highlighting|Copying text|testing effect","A controlled study beats an anecdote because?|It isolates cause|It is longer|Famous people|It is online|one story is not proof"]}};
+
+var C=[["maths","Maths","#60a5fa","M17 5H7l6 7-6 7h10"],
+["science","Science","#34d399","M9 3h6M10 3v6.5L5.2 18a2 2 0 0 0 1.7 3h10.2a2 2 0 0 0 1.7-3L14 9.5V3"],
+["english","English","#f59e0b","M4 20l3.6-.9L17 9.6a2.6 2.6 0 0 0-3.7-3.7L3.9 15.4 4 20zM13 7l4 4"],
+["bible","Bible","#a78bfa","M12 3v18M6.5 9h11"],
+["history","History","#f472b6","M7 3h10v3l-5 6 5 6v3H7v-3l5-6-5-6z"],
+["think","Thinking","#22d3ee","M10 21h4M12 3a6 6 0 0 0-3.4 11c.8.5 1.4 1.2 1.4 2h4c0-.8.6-1.5 1.4-2A6 6 0 0 0 12 3z"]];
+var S={l:1,cat:null,qs:[],i:0,sc:0,wr:[],d:0,t:0,iv:0,t0:0};
+function sh(a){for(var i=a.length-1;i>0;i--){var j=Math.random()*(i+1)|0,t=a[i];a[i]=a[j];a[j]=t}return a}
+function bz(k){try{T.HapticFeedback.impactOccurred(k)}catch(e){}}
+function stp(){if(S.iv){clearInterval(S.iv);S.iv=0}}
+function run(){
+ S.t=LIMIT;$("tm").textContent=S.t+"s";$("tm").className="tm";stp();
+ S.iv=setInterval(function(){
+  S.t--;
+  if(S.t<=5){$("tm").className="tm low";sfx("tick")}
+  if(S.t<=0){stp();$("tm").textContent="0s";
+   if(!S.d){bz("heavy");an(-1)}
+   return}
+  $("tm").textContent=S.t+"s";
+ },1000)}
+
+function lv(n){S.l=n;$("l1").className=n==1?"on":"";$("l2").className=n==2?"on":"";
+stp();$("done").classList.add("hide");$("run").classList.add("hide");$("home").classList.remove("hide");gr()}
+
+function gr(){var g=$("grid");g.innerHTML="";var t=0;
+C.forEach(function(c){t+=Q[c[0]][S.l].length;
+var b=document.createElement("button");b.type="button";b.className="cat";b.setAttribute("data-a","go "+c[0]);
+b.innerHTML=ic(c[3],c[2])+c[1]+"<span>"+Q[c[0]][S.l].length+" q - "+LIMIT+"s each</span>";g.appendChild(b)});
+var m=document.createElement("button");m.type="button";m.className="cat w";m.setAttribute("data-a","go mixed");
+m.innerHTML=ic("M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z","#e8eefc")+"Mixed test<span>10 from "+t+"</span>";
+g.appendChild(m)}
+
+function pr(s){var p=s.split("|"),r=p[1];var m=[p[1],p[2],p[3],p[4]].map(function(t){return{t:t,k:t==r}});
+sh(m);return{q:p[0],o:m,e:p[5],r:r}}
+
+function go(c){S.cat=c;S.i=0;S.sc=0;S.wr=[];S.d=0;var p=[];
+if(c=="mixed"){C.forEach(function(x){Q[x[0]][S.l].forEach(function(s){p.push(s)})});p=sh(p).slice(0,10)}
+else p=sh(Q[c][S.l].slice());
+S.qs=p.map(pr);S.t0=Date.now();
+$("home").classList.add("hide");$("done").classList.add("hide");$("run").classList.remove("hide");
+bz("light");sfx("tap");rd()}
+
+function rd(){S.d=0;var it=S.qs[S.i],n=S.qs.length;
+$("prog").style.width=S.i/n*100+"%";
+$("cnt").textContent="Q "+(S.i+1)+" / "+n;
+$("tag").textContent=S.l==1?"13+":"16+";
+$("qt").textContent=it.q;$("why").classList.add("hide");
+var w=$("opts");w.innerHTML="";
+it.o.forEach(function(o,k){var b=document.createElement("button");b.type="button";b.className="o";
+b.setAttribute("data-a","an "+k);b.textContent=o.t;w.appendChild(b)});
+run()}
+
+function an(k){if(S.d)return;S.d=1;stp();
+var it=S.qs[S.i],bs=$("opts").children,ri=0,i;
+for(i=0;i<it.o.length;i++){if(it.o[i].k)ri=i}
+for(i=0;i<bs.length;i++){bs[i].disabled=true;
+if(i==ri)bs[i].className="o ok";else if(i==k)bs[i].className="o no"}
+if(k==ri){S.sc++;bz("medium");sfx("ok")}else{S.wr.push(it);bz("heavy");sfx("no")}
+$("why").textContent=it.e;$("why").classList.remove("hide");
+setTimeout(function(){S.i++;if(S.i<S.qs.length)rd();else fin()},1500)}
+
+function fin(){stp();$("run").classList.add("hide");$("done").classList.remove("hide");
+var n=S.qs.length,p=Math.round(S.sc/n*100);
+var sec=Math.max(1,Math.round((Date.now()-S.t0)/1000));
+var tt=sec>=60?Math.floor(sec/60)+"m "+(sec%60)+"s":sec+"s";
+$("fin").textContent=S.sc+"/"+n;
+$("fl").textContent=p==100?"Perfect. Genuinely sharp. Send it in.":p>=80?p+"% - strong. Send it in.":p>=50?p+"% - a fair round. Read the review.":p+"% - the review matters more than the score.";
+$("tm_total").textContent="Total time: "+tt+" - about "+Math.round(sec/n)+"s per question";
+var r=$("rev");
+if(!S.wr.length){r.innerHTML='<div class="card mid">Nothing to review. All correct.</div>'}
+else{var h='<div class="card"><div class="q" style="font-size:15px">Review - '+S.wr.length+' to fix</div>';
+S.wr.forEach(function(w){h+='<div class="rv">'+w.q+'<b>'+w.r+'</b><em>'+w.e+'</em></div>'});
+r.innerHTML=h+'</div>'}
+sfx(p>=80?"win":"ok");bz("light")}
+
+function ss(){if(!T||!T.sendData){alert("Open this from the bot's Open Learn Hub button.");return}
+var b="Mixed";if(S.cat!="mixed"){for(var i=0;i<C.length;i++){if(C[i][0]==S.cat)b=C[i][1]}}
+try{T.sendData(b+(S.l==2?" (advanced)":" (foundation)")+"|"+S.sc);bz("medium");sfx("tap")}
+catch(e){alert("Open this from the bot keyboard button.")}}
+function ag(){go(S.cat)}
+function bk(){stp();S.qs=[];S.d=0;
+$("done").classList.add("hide");$("run").classList.add("hide");$("home").classList.remove("hide");gr()}
+function hm(){bk()}
+
+document.addEventListener("click",function(ev){
+ var el=up(ev.target);if(!el)return;bye();
+ var v=el.getAttribute("data-a").split(" "),a=v[0],b=v[1];
+ if(a=="mu"){MU=!MU;try{localStorage.km=MU?"1":"0"}catch(e){}snd();if(!MU){ac();sfx("ok")}return}
+ sfx("tap");
+ if(a=="lv")lv(+b);else if(a=="go")go(b);else if(a=="an")an(+b);
+ else if(a=="ss")ss();else if(a=="ag")ag();else if(a=="hm")hm();else if(a=="bk")bk();
+},false);
+
+$(".bk")||0;
+document.querySelector(".bk").innerHTML=ic("M15 5l-7 7 7 7","#8b93a7");
+gr();
+</script></body></html>
